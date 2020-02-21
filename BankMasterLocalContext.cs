@@ -24,6 +24,7 @@ namespace Test2
 
     public class BankPfmsCopy
     {
+
         public int Id { get; set; }
         public string BankName { get; set; }
         public int BranchId { get; set; }

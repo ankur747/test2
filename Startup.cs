@@ -54,10 +54,7 @@ namespace Test2
 
             //Recurring
             RecurringJob.AddOrUpdate<BankServiceJobs>((job) => job.UpdateAllBranchDetails(), Cron.Yearly(3));
-
-            //Continuation
-            var id = BackgroundJob.Enqueue(() => Console.WriteLine("Hello, "));
-            BackgroundJob.ContinueJobWith(id, () => Console.WriteLine("world!"));
+            RecurringJob.AddOrUpdate<BankServiceJobs>(job => job.GetNewBranches(), Cron.Yearly(3));
 
             app.UseHttpsRedirection();
 
